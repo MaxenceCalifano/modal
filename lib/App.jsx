@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import "./App.css";
 import PropTypes from 'prop-types';
 
-function Modal({ isOpen, setIsOpen }) {
+function Modal({ isOpen, setIsOpen, text }) {
   const ref = useRef()
 
 
@@ -24,7 +24,7 @@ function Modal({ isOpen, setIsOpen }) {
           <>
             <div className="modalWrapper">
               <div ref={ref} className="modalContainer">
-                <p className="modalContent">Employee created!</p>
+                <p className="modalContent">{text}</p>
               </div>
             </div>
 
@@ -38,7 +38,8 @@ function Modal({ isOpen, setIsOpen }) {
 
 Modal.propTypes = {
   isOpen: PropTypes.bool,
-  setIsOpen: PropTypes.func
+  setIsOpen: PropTypes.func,
+  text: PropTypes.string
 }
 
 export default Modal;
